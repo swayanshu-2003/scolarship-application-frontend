@@ -1,80 +1,193 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 export const SignUp = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  const [selectedOption, setSelectedOption] = useState("");
+
+  const handleSelect = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
   return (
     <>
-      <section className="flex flex-col justify-center h-screen items-center pt-6 ">
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-              Create an account
-            </h1>
-            <form className="space-y-4 md:space-y-6" method="POST">
-              <div>
-                <label
-                  for="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Your full name
-                </label>
+      <div className="xl:min-w-fit px-10 min-h-fit rounded-3xl">
+        <h1 className="text-center text-3xl font-bold mt-2 mb-2">
+          {" "}
+          Create an account{" "}
+        </h1>
+        <hr />
+        <div className="flex justify-center mt-8">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            
+              <div className="flex flex-row gap-4">
+
+                <div className="flex flex-col">
+                <input
+                  type="email"
+                  id=""
+                  className="py-3 p-5 rounded-md bg-zinc-50  md:w-[300px] w-[100px] outline-indigo-400 mt-5 "
+                  placeholder="Enter email"
+                  {...register("userEmail", {
+                    required: "*This field is required",
+                  })}
+                  />
+                {errors?.userEmail && (
+                  <small className="text-xs text-red-600">
+                    {" "}
+                    {errors.userEmail.message}{" "}
+                  </small>
+                )}
+                </div>
+                
+                <div className="flex flex-col">
+
+                <input
+                  type="number"
+                  id=""
+                  className="py-3 p-5 rounded-md  bg-zinc-50 md:w-[300px] w-[100px] outline-indigo-400 mt-5"
+                  placeholder="phone number"
+                  {...register("userPhno", {
+                    required: "*This field is required",
+                  })}
+                  />
+                {errors?.userPhno && (
+                  <small className="text-xs text-red-600">
+                    {" "}
+                    {errors.userPhno.message}{" "}
+                  </small>
+                )}
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className=" rounded-md p-4  md:w-[300px] w-[100px] mx-auto mt-4">
+                  <div className="flex gap-6">
+                    <label className="flex bg-gray-100 text-gray-700 rounded-md w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+                      <input type="radio" name="Country" />
+                      <i class="pl-2">Male</i>
+                    </label>
+
+                    <label className="flex bg-gray-100 text-gray-700 rounded-md  w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+                      <input type="radio" name="Country" />
+                      <i class="pl-2">Female</i>
+                    </label>
+                  </div>
+                </div>
+
+                 <div className="flex flex-col">
+
+                <input
+                  type="date"
+                  id=""
+                  className="py-3 p-5 rounded-md bg-zinc-50 md:w-[300px] w-[100px] h-fit outline-indigo-400 mt-8"
+                  placeholder="Date of Birth"
+                  {...register("userDob", {
+                    required: "*This field is required",
+                  })}
+                  />
+
+                {errors?.userDob && (
+                  <small className="text-xs text-red-600">
+                    {" "}
+                    {errors.userDob.message}{" "}
+                  </small>
+                )}
+                </div>
+              </div>
+
+                  <div className="flex flex-col">
+
+              <input
+                type="number"
+                id=""
+                className="py-3 p-5 rounded-md bg-zinc-50 w-full outline-indigo-400 mt-5 "
+                placeholder="Adhaar Number"
+                {...register("userAdhaar", {
+                  required: "*This field is required",
+                })}
+                />
+              {errors?.userAdhaar && (
+                <small className="text-xs text-red-600">
+                  {" "}
+                  {errors.userAdhaar.message}{" "}
+                </small>
+              )}
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex flex-col"> 
+
                 <input
                   type="text"
-                  name="name"
-                  id="name"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Emelia Erickson"
-                  required=""
-                />
+                  id=""
+                  className="py-3 p-5 rounded-md h-fit bg-zinc-50  md:w-[300px] w-[100px] outline-indigo-400 mt-8"
+                  placeholder="username"
+                  {...register("username", {
+                    required: "*This field is required",
+                  })}
+                  />
+                {errors?.username && (
+                  <small className="text-xs text-red-600">
+                    {" "}
+                    {errors.username.message}{" "}
+                  </small>
+                )}
+                </div>
+
+                <div className="relative  md:w-[300px] w-[100px] mt-8">
+                  <select 
+                    className=" py-3 p-5 rounded-md  bg-zinc-50 w-64 outline-indigo-400 "
+                    value={selectedOption}
+                    onChange={handleSelect}
+                    {...register("userRoll", {required:"This is required"})}
+                    
+                  
+                  >
+                    
+                  
+                    <option value="" disabled>
+                      Select an option
+                    </option>
+                    <option value="Admin">Admin</option>
+                    <option value="Student">Student</option>
+                    <option value="Institute">Institute</option>
+                  </select>
+                </div>
               </div>
-              <div>
-                <label
-                  for="username"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Username
-                </label>
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="emelia_erickson24"
-                  required=""
-                />
-              </div>
-              <div>
-                <label
-                  for="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
-                />
-              </div>
+             
+             
+
+            <div>
               <button
                 type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="py-3 bg-indigo-400 text-white w-full mt-6  rounded-md font-bold"
               >
-                Create an account
+                Sign Up
               </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Already have an account?
-                <a
-                  className="font-medium text-blue-600 hover:underline dark:text-blue-500"
-                  href="/login"
-                >
-                  Sign in here
-                </a>
-              </p>
-            </form>
-          </div>
+            </div>
+
+            <p className="text-sm font-light text-black  mt-4">
+              Already have an account?
+              <a
+                className="font-medium text-blue-600 hover:underline ml-3 dark:text-blue-500"
+                href="/login"
+              >
+                Sign in here
+              </a>
+            </p>
+          </form>
         </div>
-      </section>
+      </div>
     </>
   );
 };

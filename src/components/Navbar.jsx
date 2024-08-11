@@ -4,12 +4,13 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 
 
-export const Navbar = ({openLoginModal, setOpenLoginModal}) => {
+
+export const Navbar = ({openLoginModal, setOpenLoginModal, setOpenSignUpModal}) => {
   return (
     <>
       <nav className="bg-gray-800 text-white py-3 px-4 flex left-0 w-full z-50 fixed">
         <LanguageToggle />
-        <ThemeToggle />
+        {/* <ThemeToggle /> */}
         <FontChange />
       </nav>
 
@@ -18,23 +19,26 @@ export const Navbar = ({openLoginModal, setOpenLoginModal}) => {
           <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 ">
             <div className="relative flex h-16 justify-between">
               <div className="flex flex-1 items-stretch justify-start">
-                <a className="flex flex-shrink-0 items-center" href="#">
                 
-                </a>
+                 <div>
+                  <h2 className="font-bold text-xl">Odisha State Scholarship Portal</h2>
+                  <p className="text-gray-500">Government of Odisha</p>
+                 </div>
+
               </div>
               <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
                 <button
                  onClick={() => setOpenLoginModal(true)}
-                  className="text-gray-800 bg-green-400 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
+                  className="text-gray-800 bg-green-400 hover:bg-green-500 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
                 >
                   Login
                 </button>
-                <Link to={"/signUp"}
-                  className="text-gray-800 bg-green-400 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
+                <button onClick={() => setOpenSignUpModal(true)}
+                  className="text-gray-800 bg-green-400 hover:bg-green-500 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
                   href="#"
                 >
                   Sign Up
-                </Link>
+                </button>
               </div>
             </div>
           </div>
