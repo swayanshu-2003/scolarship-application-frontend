@@ -14,7 +14,7 @@ export const Login = () => {
 
         <>
 
-                <div className="xl:w-[700px] px-10 h-[350px] rounded-3xl xl:shadow-xl ">
+                <div className="xl:w-[700px] px-10 h-[350px] rounded-3xl  ">
                     <h1 className="text-center text-3xl font-bold mt-2 mb-2">Login</h1>
                     <hr />
                     <div className="flex justify-center mt-10">
