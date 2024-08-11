@@ -11,6 +11,7 @@ import Home from './pages/Home/Home';
 function App() {
 
   const [openLoginModal,setOpenLoginModal] = useState(false)
+  const [openSignUpModal,setOpenSignUpModal] = useState(false)
 
    
 
@@ -18,9 +19,9 @@ function App() {
     <>
     <Router>
 
-     <Navbar  openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} />
+     <Navbar  openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal}  openSignUpModal={openSignUpModal} setOpenSignUpModal={setOpenSignUpModal}/>
      <Routes>
-      <Route path='/' element={<Home openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} />}/>
+      <Route path='/' element={<Home openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openSignUpModal={openSignUpModal} setOpenSignUpModal={setOpenSignUpModal} />}/>
      <Route path="/login" element={<Login />} />
      <Route path="/signUp" element={<SignUp />} />
      </Routes>
