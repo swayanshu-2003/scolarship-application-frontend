@@ -4,10 +4,10 @@ import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
 
 
-export const Navbar = () => {
+export const Navbar = ({openLoginModal, setOpenLoginModal}) => {
   return (
     <>
-      <nav class="bg-gray-800 text-white py-3 px-4 flex left-0 w-full z-50 fixed">
+      <nav className="bg-gray-800 text-white py-3 px-4 flex left-0 w-full z-50 fixed">
         <LanguageToggle />
         <ThemeToggle />
         <FontChange />
@@ -23,12 +23,12 @@ export const Navbar = () => {
                 </a>
               </div>
               <div className="flex-shrink-0 flex px-2 py-3 items-center space-x-8">
-                <Link
-                  to="/login"
+                <button
+                 onClick={() => setOpenLoginModal(true)}
                   className="text-gray-800 bg-green-400 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm"
                 >
                   Login
-                </Link>
+                </button>
                 <Link to={"/signUp"}
                   className="text-gray-800 bg-green-400 hover:bg-indigo-200 inline-flex items-center justify-center px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm "
                   href="#"

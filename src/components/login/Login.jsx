@@ -1,7 +1,7 @@
 export const Login = () => {
     return(
         <>
-            <div className="flex justify-center items-center h-screen">
+        
                 <div className="xl:w-[700px] px-10 h-[400px] rounded-3xl xl:shadow-xl">
                     <h1 className="text-center text-3xl font-bold mt-2 mb-2">Login</h1>
                     <hr />
@@ -32,9 +32,10 @@ export const Login = () => {
                                 Submit
                             </button>
                         </form>
+
                     </div>
                 </div>
-            </div>
+          
         </>
     )
 }

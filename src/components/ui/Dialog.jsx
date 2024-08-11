@@ -2,6 +2,9 @@ import React from 'react'
 import { RxCross2 } from 'react-icons/rx'
 
 const Dialog = ({ open, setOpen, className, child }) => {
+
+    console.log(open)
+    console.log(child)
     return (
         <div class={`fixed inset-0 items-center  justify-center z-50 backdrop-brightness-50 confirm-dialog ${open ? "flex" : "hidden"} `}>
             <div class="relative px-4 min-h-screen md:flex md:items-center md:justify-center">

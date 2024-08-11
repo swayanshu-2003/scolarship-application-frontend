@@ -3,7 +3,7 @@ export const ThemeToggle = () => {
     <>
  
         <button
-          onclick="(() => document.body.classList.toggle('dark'))()"
+      
           className="h-12 w-12 rounded-lg p-2 hover:bg-gray-100 dark:hover:bg-gray-700"
         >
           <svg
