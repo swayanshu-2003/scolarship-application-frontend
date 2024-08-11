@@ -1,14 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import { Navbar } from './components/Navbar'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Login } from './components/login/Login';
+import { SignUp } from './pages/SignUp';
+import Home from './pages/Home/Home';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [openLoginModal, setOpenLoginModal] = useState(false)
+
+  console.log(openLoginModal)
 
   return (
     <>
-     
+      <Router>
+
+        <Navbar openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} />
+        <Routes>
+          <Route path='/' element={<Home openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signUp" element={<SignUp />} />
+        </Routes>
+      </Router>
     </>
   )
 }
