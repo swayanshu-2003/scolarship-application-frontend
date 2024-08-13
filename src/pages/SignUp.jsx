@@ -28,10 +28,8 @@ export const SignUp = () => {
         <hr />
         <div className="flex justify-center mt-8">
           <form onSubmit={handleSubmit(onSubmit)}>
-            
-              <div className="flex flex-row gap-4">
-
-                <div className="flex flex-col">
+            <div className="flex flex-row gap-4">
+              <div className="flex flex-col">
                 <input
                   type="email"
                   id=""
@@ -40,17 +38,16 @@ export const SignUp = () => {
                   {...register("userEmail", {
                     required: "*This field is required",
                   })}
-                  />
+                />
                 {errors?.userEmail && (
                   <small className="text-xs text-red-600">
                     {" "}
                     {errors.userEmail.message}{" "}
                   </small>
                 )}
-                </div>
-                
-                <div className="flex flex-col">
+              </div>
 
+              <div className="flex flex-col">
                 <input
                   type="number"
                   id=""
@@ -59,33 +56,56 @@ export const SignUp = () => {
                   {...register("userPhno", {
                     required: "*This field is required",
                   })}
-                  />
+                />
                 {errors?.userPhno && (
                   <small className="text-xs text-red-600">
                     {" "}
                     {errors.userPhno.message}{" "}
                   </small>
                 )}
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <div className=" rounded-md p-4  md:w-[300px] w-[100px] mx-auto mt-4">
+                <div className="flex gap-6">
+                  <label className="flex bg-gray-100 text-gray-700 rounded-md w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+                    <input
+                      type="radio"
+                      name="Country"
+                      {...register("userGender", {
+                        required: "This field is required",
+                      })}
+                    />
+                    {errors?.userGender && (
+                      <small className="text-xs text-red-600">
+                        {" "}
+                        {errors.userGender.message}{" "}
+                      </small>
+                    )}
+                    <i class="pl-2">Male</i>
+                  </label>
+
+                  <label className="flex bg-gray-100 text-gray-700 rounded-md  w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
+                    <input
+                      type="radio"
+                      name="Country"
+                      {...register("userGender", {
+                        required: "This field is required",
+                      })}
+                    />
+                    {errors?.userGender && (
+                      <small className="text-xs text-red-600">
+                        {" "}
+                        {errors.userGender.message}{" "}
+                      </small>
+                    )}
+                    <i class="pl-2">Female</i>
+                  </label>
                 </div>
               </div>
 
-              <div className="flex gap-4">
-                <div className=" rounded-md p-4  md:w-[300px] w-[100px] mx-auto mt-4">
-                  <div className="flex gap-6">
-                    <label className="flex bg-gray-100 text-gray-700 rounded-md w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
-                      <input type="radio" name="Country" />
-                      <i class="pl-2">Male</i>
-                    </label>
-
-                    <label className="flex bg-gray-100 text-gray-700 rounded-md  w-1/2 px-3 py-2 my-3  hover:bg-indigo-300 cursor-pointer ">
-                      <input type="radio" name="Country" />
-                      <i class="pl-2">Female</i>
-                    </label>
-                  </div>
-                </div>
-
-                 <div className="flex flex-col">
-
+              <div className="flex flex-col">
                 <input
                   type="date"
                   id=""
@@ -94,7 +114,7 @@ export const SignUp = () => {
                   {...register("userDob", {
                     required: "*This field is required",
                   })}
-                  />
+                />
 
                 {errors?.userDob && (
                   <small className="text-xs text-red-600">
@@ -102,11 +122,10 @@ export const SignUp = () => {
                     {errors.userDob.message}{" "}
                   </small>
                 )}
-                </div>
               </div>
+            </div>
 
-                  <div className="flex flex-col">
-
+            <div className="flex flex-col">
               <input
                 type="number"
                 id=""
@@ -115,18 +134,17 @@ export const SignUp = () => {
                 {...register("userAdhaar", {
                   required: "*This field is required",
                 })}
-                />
+              />
               {errors?.userAdhaar && (
                 <small className="text-xs text-red-600">
                   {" "}
                   {errors.userAdhaar.message}{" "}
                 </small>
               )}
-              </div>
+            </div>
 
-              <div className="flex gap-4">
-                <div className="flex flex-col"> 
-
+            <div className="flex gap-4">
+              <div className="flex flex-col">
                 <input
                   type="text"
                   id=""
@@ -135,37 +153,31 @@ export const SignUp = () => {
                   {...register("username", {
                     required: "*This field is required",
                   })}
-                  />
+                />
                 {errors?.username && (
                   <small className="text-xs text-red-600">
                     {" "}
                     {errors.username.message}{" "}
                   </small>
                 )}
-                </div>
-
-                <div className="relative  md:w-[300px] w-[100px] mt-8">
-                  <select 
-                    className=" py-3 p-5 rounded-md  bg-zinc-50 w-64 outline-indigo-400 "
-                    value={selectedOption}
-                    onChange={handleSelect}
-                    {...register("userRoll", {required:"This is required"})}
-                    
-                  
-                  >
-                    
-                  
-                    <option value="" disabled>
-                      Select an option
-                    </option>
-                    <option value="Admin">Admin</option>
-                    <option value="Student">Student</option>
-                    <option value="Institute">Institute</option>
-                  </select>
-                </div>
               </div>
-             
-             
+
+              <div className="relative  md:w-[300px] w-[100px] mt-8">
+                <select
+                  className=" py-3 p-5 rounded-md  bg-zinc-50 w-64 outline-indigo-400 "
+                  value={selectedOption}
+                  onChange={handleSelect}
+                  {...register("userRoll", { required: "This is required" })}
+                >
+                  <option value="" disabled>
+                    Select an option
+                  </option>
+                  <option value="Admin">Admin</option>
+                  <option value="Student">Student</option>
+                  <option value="Institute">Institute</option>
+                </select>
+              </div>
+            </div>
 
             <div>
               <button
