@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import moment from "moment";
+import axios from "axios";
 
 export const SignUp = () => {
   const {
@@ -8,8 +10,14 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async(data) => {
+
+    const payload = {
+      ...data,      
+    } 
+    console.log(payload);
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user`, payload)
+    console.log(response);
   };
 
   return (
@@ -59,7 +67,7 @@ export const SignUp = () => {
                   <label className="flex items-center bg-gray-100 text-gray-700 rounded-md px-3 py-2 hover:bg-indigo-300 cursor-pointer">
                     <input
                       type="radio"
-                      value="Male"
+                      value="male"
                       {...register("gender", { required: "*This field is required" })}
                     />
                     <span className="pl-2">Male</span>
@@ -68,7 +76,7 @@ export const SignUp = () => {
                   <label className="flex items-center bg-gray-100 text-gray-700 rounded-md px-3 py-2 hover:bg-indigo-300 cursor-pointer">
                     <input
                       type="radio"
-                      value="Female"
+                      value="female"
                       {...register("gender", { required: "*This field is required" })}
                     />
                     <span className="pl-2">Female</span>
@@ -137,9 +145,8 @@ export const SignUp = () => {
                   {...register("userRoll", { required: "*This field is required" })}
                 >
                   <option value="" disabled>Select an option</option>
-                  <option value="Admin">Admin</option>
-                  <option value="Student">Student</option>
-                  <option value="Institute">Institute</option>
+                  <option value="student">Student</option>
+                  <option value="institute">Institute</option>
                 </select>
                 {errors.userRoll && (
                   <small className="text-xs text-red-600">
