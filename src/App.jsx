@@ -22,8 +22,8 @@ function App() {
         <Navbar openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openSignUpModal={openSignUpModal} setOpenSignUpModal={setOpenSignUpModal} />
         <Routes>
           <Route path='/' element={<Home openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openSignUpModal={openSignUpModal} setOpenSignUpModal={setOpenSignUpModal} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signUp" element={<SignUp />} />
+          {/* <Route path="/login" element={<Login />} /> */}
+          {/* <Route path="/signUp" element={<SignUp />} /> */}
         </Routes>
       </Router>
     </>

@@ -10,11 +10,11 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
 
     const payload = {
-      ...data,      
-    } 
+      ...data,
+    }
     console.log(payload);
     const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user`, payload)
     console.log(response);
@@ -68,7 +68,7 @@ export const SignUp = () => {
                     <input
                       type="radio"
                       value="male"
-                      {...register("gender", { required: "*This field is required" })}
+                      {...register("userGender", { required: "*This field is required" })}
                     />
                     <span className="pl-2">Male</span>
                   </label>
@@ -77,14 +77,14 @@ export const SignUp = () => {
                     <input
                       type="radio"
                       value="female"
-                      {...register("gender", { required: "*This field is required" })}
+                      {...register("userGender", { required: "*This field is required" })}
                     />
                     <span className="pl-2">Female</span>
                   </label>
                 </div>
-                {errors.gender && (
+                {errors.userGender && (
                   <small className="text-xs text-red-600">
-                    {errors.gender.message}
+                    {errors.userGender.message}
                   </small>
                 )}
               </div>
@@ -128,13 +128,13 @@ export const SignUp = () => {
                   type="text"
                   className="py-3 p-5 rounded-md bg-zinc-50 outline-indigo-400"
                   placeholder="Username"
-                  {...register("username", {
+                  {...register("userName", {
                     required: "*This field is required",
                   })}
                 />
-                {errors.username && (
+                {errors.userName && (
                   <small className="text-xs text-red-600">
-                    {errors.username.message}
+                    {errors.userName.message}
                   </small>
                 )}
               </div>
@@ -142,15 +142,15 @@ export const SignUp = () => {
               <div className="flex flex-col">
                 <select
                   className="py-3 p-5 rounded-md bg-zinc-50 outline-indigo-400"
-                  {...register("userRoll", { required: "*This field is required" })}
+                  {...register("roleName", { required: "*This field is required" })}
                 >
                   <option value="" disabled>Select an option</option>
-                  <option value="student">Student</option>
-                  <option value="institute">Institute</option>
+                  <option value="STUDENT">Student</option>
+                  <option value="INSTITUTE">Institute</option>
                 </select>
-                {errors.userRoll && (
+                {errors.roleName && (
                   <small className="text-xs text-red-600">
-                    {errors.userRoll.message}
+                    {errors.roleName.message}
                   </small>
                 )}
               </div>
