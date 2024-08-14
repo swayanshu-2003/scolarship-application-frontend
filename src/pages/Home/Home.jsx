@@ -1,7 +1,8 @@
 import { Login } from '../../components/login/Login'
-import Dialog from '../../components/ui/Dialog'
+import { CustomDialog } from '../../components/Dialog/Dialog'
 import React, { useState } from 'react'
 import { SignUp } from '../SignUp'
+import { Button } from '@/components/ui/button'
 
 const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignUpModal }) => {
 
@@ -9,10 +10,10 @@ const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignU
 
 
   const renderModals = (
-    <Dialog open={openLoginModal} setOpen={setOpenLoginModal} child={<Login />} />
+    <CustomDialog open={openLoginModal} setOpen={setOpenLoginModal} className={`w-max`} child={<Login />} />
   )
   const renderSignUpModals = (
-    <Dialog open={openSignUpModal} setOpen={setOpenSignUpModal} child={<SignUp />} />
+    <CustomDialog open={openSignUpModal} setOpen={setOpenSignUpModal} child={<SignUp />} />
   )
   return (
     <div className='w-full'>
