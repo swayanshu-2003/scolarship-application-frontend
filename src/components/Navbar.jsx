@@ -2,25 +2,18 @@ import { Link } from "react-router-dom";
 
 import { CiSearch } from "react-icons/ci";
 
-import logo from '../../src/assets/images/ossp-logo.png'
+import logo from '../../src/assets/images/logo.webp'
 
 export const Navbar = ({openLoginModal, setOpenLoginModal, setOpenSignUpModal}) => {
   return (
     <>
       <div>
-        <div className="fixed  left-0 w-full h-24  z-1 bg-white border-b backdrop-blur-lg bg-opacity-80">
+        <div className="fixed  left-0 w-full   z-1 bg-white border-b backdrop-blur-lg bg-opacity-80">
           <div className="mx-auto max-w-7xl px-2 sm:px-2 lg:px-4 ">
             <div className="relative flex  justify-evenly">
               <div className="flex flex-1 items-stretch justify-start">
-                
-                 <div className="flex justify-center items-center gap-4">
-                  <img src={logo} alt="" className="w-20 h-20 mt-2"/>
-                  
-                  <h className="font-bold text-xl">Odisha State Scholarship Portal</h>
-                 </div>
               </div>
-
-
+                  
                 <nav className="flex gap-6 justify-center items-center mr-4">
                   <Link to={"/about"}>About</Link>
                   <Link to={"/schemes"}>Schemes</Link>
@@ -30,7 +23,7 @@ export const Navbar = ({openLoginModal, setOpenLoginModal, setOpenSignUpModal}) 
                 </nav>
 
                 <div className="flex justify-center align-middle mr-3">
-                  <button className="rounded-full hover:bg-blue-500 p-2 h-fit mt-6 hover:text-white">
+                  <button className="rounded-full hover:bg-blue-500 p-2 h-fit mt-4 hover:text-white">
                   <CiSearch size={28} />
                   </button>
                 </div>
