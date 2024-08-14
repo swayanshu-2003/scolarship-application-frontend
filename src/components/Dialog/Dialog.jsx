@@ -2,12 +2,7 @@
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/Dialog"
 
 
 export function CustomDialog({ className, child, open, setOpen }) {
