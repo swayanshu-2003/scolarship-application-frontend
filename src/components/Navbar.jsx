@@ -9,7 +9,7 @@ export const Navbar = ({ openLoginModal, setOpenLoginModal, setOpenSignUpModal }
   return (
     <>
       <div>
-        <div className="fixed  left-0 w-full   z-1 bg-white border-b backdrop-blur-lg bg-opacity-80">
+        <div className="sticky top-0  left-0 w-full   z-1 bg-white border-b backdrop-blur-lg bg-opacity-80">
           <div className="mx-auto max-w-7xl px-2 sm:px-2 lg:px-4 ">
             <div className="relative flex  justify-evenly">
               <div className="flex flex-1 items-stretch justify-start">
