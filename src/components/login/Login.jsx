@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useForm } from "react-hook-form"
-import { setToken } from "../../utils/localstorageUtils";
+import { setRole, setToken, setUser } from "../../utils/localstorageUtils";
 
 export const Login = () => {
 
@@ -12,6 +12,8 @@ export const Login = () => {
         console.log(response)
         if (response.status === 200) {
             setToken(response.data.token)
+            setUser(response.data.user)
+            setRole(response.data.role)
         }
     }
 
