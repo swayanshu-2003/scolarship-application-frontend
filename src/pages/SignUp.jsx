@@ -2,22 +2,36 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import moment from "moment";
 import axios from "axios";
+import { setToken, setUser } from "@/utils/localstorageUtils";
+import { useNavigate } from "react-router-dom";
+import { ClockLoader } from "react-spinners";
 
-export const SignUp = () => {
+export const SignUp = ({setOpen, setOpenLoginModal}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
-
+       setIsLoading(true)
     const payload = {
       ...data,
     }
     console.log(payload);
     const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user`, payload)
     console.log(response);
+    if(response?.status === 201){
+      // setUser(response?.data?.user)
+      // setRole(response?.data?.role)
+      // setToken(response?.data?.token)
+      navigate("/dashboard")
+       setIsLoading(false)
+       setOpenLoginModal(true)
+       setOpen(false)
+    }
   };
 
   return (
@@ -159,9 +173,10 @@ export const SignUp = () => {
             <div>
               <button
                 type="submit"
+                disabled={isLoading}
                 className="py-3 bg-indigo-400 text-white w-full mt-6 rounded-md font-bold"
               >
-                Sign Up
+                 {isLoading?<ClockLoader color="#fcfcfc" size={28}  /> : "Sign Up" }   
               </button>
             </div>
 

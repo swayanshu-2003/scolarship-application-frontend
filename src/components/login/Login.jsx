@@ -1,12 +1,20 @@
 import axios from "axios";
 import { useForm } from "react-hook-form"
 import { setRole, setToken, setUser } from "../../utils/localstorageUtils";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { ClockLoader, MoonLoader } from "react-spinners";
 
-export const Login = () => {
+export const Login = ({setOpen}) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
+
     const onSubmit = async (data) => {
+
+        setIsLoading(true);
         console.log(data);
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, data)
         console.log(response)
@@ -14,8 +22,13 @@ export const Login = () => {
             setToken(response.data.token)
             setUser(response.data.user)
             setRole(response.data.role)
+            navigate("/dashboard")
         }
+     setIsLoading(false);
+     setOpen(false);
+
     }
+
 
 
 
@@ -56,9 +69,10 @@ export const Login = () => {
                         </div>
                         <button
                             type="submit"
+                            disabled={isLoading}
                             className="py-3 bg-indigo-400 text-white w-full rounded-md font-bold"
                         >
-                            Submit
+                            {isLoading? <ClockLoader color="#fcfcfc" size={28}  /> : "Submit" }
                         </button>
                     </form>
 
