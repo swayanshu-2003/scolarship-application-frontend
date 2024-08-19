@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { UserProfile } from "@/section/dashboard/UserProfile";
 import { ApplcationScholarshipForm } from "@/components/forms/Applicatiion form/ApplicationScholarshipForm";
 import CreatePlan from "../admin/plans/CreatePlan";
+import ViewPlan from "../admin/plans/ViewPlan";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ export const Dashboard = () => {
         {activeSection === "dashboard" && <UserProfile />}
         {activeSection === "apply" && <ApplcationScholarshipForm />}
         {activeSection === "create_plans" && <CreatePlan />}
+        {activeSection === "view_plans" && <ViewPlan />}
         
       </div>
     </div>

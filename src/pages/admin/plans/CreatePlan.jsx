@@ -1,4 +1,4 @@
-import { toast } from "@/components/ui/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "@/utils/api";
 import axios from "axios";
 import React, { useState } from "react";
@@ -8,7 +8,7 @@ import { ClockLoader } from "react-spinners";
 const CreatePlan = () => {
 
     const [isLoading, setIsLoading] = useState(false);
-
+        const {toast} = useToast();
   const {
     register,
     handleSubmit,
@@ -34,9 +34,7 @@ const CreatePlan = () => {
       value: "phd",
     },
   ];
-  toast({
-    description: "✅ Plan created successfully."
-})
+ 
  
    const onSubmit = async(data) => {
             setIsLoading(true)

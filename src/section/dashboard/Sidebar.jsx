@@ -61,7 +61,7 @@ export const Sidebar = ({ activeSection, setActiveSection }) => {
     {
       icon: <CiCreditCard1 color="blue" size={24} />,
       label: "View Plans",
-      value: "viewplans",
+      value: "view_plans",
     },
     {
       icon: <CiCreditCard1 color="blue" size={24} />,
