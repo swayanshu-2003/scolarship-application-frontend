@@ -23,6 +23,14 @@ export const setRole = (role) => {
     }
 }
 
+export const getRole = () => {
+    let role;
+    if(typeof window !== undefined){
+     role =  localStorage.getItem('role');
+    }
+    return role ? role : false;
+}
+
 export const getUser = () => {
 
     let user;

@@ -7,6 +7,8 @@ import { Login } from './components/login/Login';
 import { SignUp } from './pages/SignUp';
 import Home from './pages/Home/Home';
 import { Dashboard } from './pages/Dashboard/Dashboard';
+import { ApplcationScholarshipForm } from './components/forms/Applicatiion form/ApplicationScholarshipForm';
+import { Toaster } from './components/ui/toaster';
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
 
   return (
     <>
+    <Toaster/>
       <Router>
 
         <Navbar openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openSignUpModal={openSignUpModal} setOpenSignUpModal={setOpenSignUpModal} />
@@ -26,6 +29,7 @@ function App() {
           {/* <Route path="/login" element={<Login />} /> */}
           {/* <Route path="/signUp" element={<SignUp />} /> */}
           <Route path="/dashboard" element={<Dashboard />} /> 
+          <Route path="/applicationscholarshipform" element={<ApplcationScholarshipForm />} /> 
         </Routes>
        
       </Router>

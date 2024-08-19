@@ -3,25 +3,25 @@ import { CustomDialog } from '../../components/Dialog/Dialog'
 import React, { useState } from 'react'
 import { SignUp } from '../SignUp'
 import { Button } from '@/components/ui/button'
+import { useForm } from 'react-hook-form'
 
 const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignUpModal }) => {
 
+ 
 
-
-
-  const renderModals = (
-    <CustomDialog open={openLoginModal} setOpen={setOpenLoginModal} className={`w-max`} child={<Login />} />
-  )
-  const renderSignUpModals = (
-    <CustomDialog open={openSignUpModal} setOpen={setOpenSignUpModal} child={<SignUp />} />
-  )
+  // const renderModals = (
+  //   <CustomDialog open={openLoginModal} setOpen={setOpenLoginModal} className={`w-max`} child={<Login />} />
+  // )
+  // const renderSignUpModals = (
+  //   <CustomDialog open={openSignUpModal} setOpen={setOpenSignUpModal} child={<SignUp />} />
+  // )
   return (
     <>
-    <div className='w-full'>
+    {/* <div className='w-full'>
       {renderModals}
       {renderSignUpModals}
-    </div>
-    <main className="pt-16">
+    </div> */}
+    <main className="pt-4">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 to-indigo-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -60,6 +60,10 @@ const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignU
         </div>
       </section>
     </main>
+
+
+
+         
     
     </>
 
