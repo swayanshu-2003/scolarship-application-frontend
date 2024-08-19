@@ -108,7 +108,7 @@ export const Sidebar = ({ activeSection, setActiveSection }) => {
           <div
             key={index}
             onClick={() => setActiveSection(item?.value)}
-            className={`flex gap-3 items-center hover:bg-gray-100 h-10 p-4 hover:rounded-lg mb-3 ${
+            className={`flex gap-3 items-center hover:bg-gray-100 h-10 p-4 hover:rounded-lg mb-3 cursor-pointer ${
               activeSection === item.value && "bg-gray-100"
             }`}
           >
