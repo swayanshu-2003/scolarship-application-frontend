@@ -66,7 +66,7 @@ export const Sidebar = ({ activeSection, setActiveSection }) => {
     {
       icon: <CiCreditCard1 color="blue" size={24} />,
       label: "Create Plans",
-      value: "createplans",
+      value: "create_plans",
     },
     {
       icon: <CiCreditCard1 color="blue" size={24} />,
@@ -91,7 +91,7 @@ export const Sidebar = ({ activeSection, setActiveSection }) => {
   }, [role]);
 
   return (
-    <div className="w-72 m-4 shadow-xl bg-white sticky left-0 top-28">
+    <div className="w-72 m-4 shadow-xl bg-white sticky left-0 top-0">
       <div className="h-36 bg-blue-400 rounded-lg"></div>
       <div className="rounded-full w-36 h-36 bg-white flex justify-center items-center border-white mt-[-5rem] m-auto">
         <img src="logo-1.webp" alt="" className="w-32 h-32 rounded-full" />

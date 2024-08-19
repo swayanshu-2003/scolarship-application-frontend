@@ -3,11 +3,11 @@ import { CustomDialog } from '../../components/Dialog/Dialog'
 import React, { useState } from 'react'
 import { SignUp } from '../SignUp'
 import { Button } from '@/components/ui/button'
+import { useForm } from 'react-hook-form'
 
 const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignUpModal }) => {
 
-
-
+ 
 
   // const renderModals = (
   //   <CustomDialog open={openLoginModal} setOpen={setOpenLoginModal} className={`w-max`} child={<Login />} />
@@ -60,6 +60,10 @@ const Home = ({ openLoginModal, setOpenLoginModal, openSignUpModal, setOpenSignU
         </div>
       </section>
     </main>
+
+
+
+         
     
     </>
 

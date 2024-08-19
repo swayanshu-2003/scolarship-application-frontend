@@ -64,7 +64,7 @@ export const UserProfile = () => {
 
   return (
     <>
-      <div className="border shadow-xl bg-white w-full p-4 pl-6 mx-auto  flex flex-col items-start rounded-lg">
+      <div className="border shadow-xl bg-white w-full p-4 pl-6 mx-auto mt-4 flex flex-col items-start rounded-lg">
         <h1 className="text-xl text-blue-400 mb-4">Profile Details</h1>
 
         <div className="grid  grid-cols-1 md:grid-cols-2  lg:grid-cols-3  w-full gap-6">

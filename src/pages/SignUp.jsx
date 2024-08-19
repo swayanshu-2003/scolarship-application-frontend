@@ -160,6 +160,7 @@ export const SignUp = ({setOpen, setOpenLoginModal}) => {
                 >
                   <option value="" disabled>Select an option</option>
                   <option value="STUDENT">Student</option>
+                  <option value="ADMIN">Admin</option>
                   <option value="INSTITUTE">Institute</option>
                 </select>
                 {errors.roleName && (
