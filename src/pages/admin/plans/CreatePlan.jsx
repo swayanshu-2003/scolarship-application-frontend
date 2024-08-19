@@ -1,6 +1,5 @@
 import { useToast } from "@/components/ui/use-toast";
 import axiosInstance from "@/utils/api";
-import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ClockLoader } from "react-spinners";
@@ -19,15 +18,15 @@ const CreatePlan = () => {
   const scholarshipTypeOptions = [
     {
       label: "Pre Matric",
-      value: "pre-matric",
+      value: "pre_matric",
     },
     {
       label: "Post Matric",
-      value: "post-matric",
+      value: "post_matric",
     },
     {
       label: "Post Graduate",
-      value: "post-graduate",
+      value: "post_graduate",
     },
     {
       label: "PHD",
@@ -53,7 +52,7 @@ const CreatePlan = () => {
     <>
       <div className=" w-full bg-white p-4 ">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col p-4 w-full  gap-4 justify-center items-center  ">
-          <h1 className="text-3xl mb-8">Create Plan</h1>
+          <h1 className="text-5xl mb-8">Create Plan</h1>
           <div className="flex flex-col gap-1 items-start mb-4">
             <h2>Plan Name : </h2>
             <input
@@ -72,7 +71,16 @@ const CreatePlan = () => {
 
           <div className="flex flex-col gap-1 items-start mb-4">
             <h1>Description :</h1>
-            <textarea className="w-[35rem] rounded-md py-3 p-5 border-2  " />
+            <textarea className="w-[35rem] rounded-md py-3 p-5 border-2"
+              {...register("description", {
+                  required: "*This field is required",
+                })}
+            />
+             {errors.description && (
+                <small className="text-xs text-red-600">
+                  {errors.description.message}
+                </small>
+              )}
           </div>
           <div className="flex gap-1 w-[35rem] items-center">
             <div className="flex flex-col gap-1  w-1/2">
